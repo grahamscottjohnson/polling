@@ -1,7 +1,8 @@
 var path = require("path");
 
 module.exports = {
-  entry: "./public/index.js",
+  mode: 'development',
+  entry: ['babel-polyfill', "./public/index.js"],
   output: {
     path: path.resolve(__dirname, "public/dist"),
     filename: "bundle.js",
@@ -19,3 +20,5 @@ module.exports = {
     ]
   },
 }
+
+

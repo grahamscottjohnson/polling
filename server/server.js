@@ -8,8 +8,10 @@ db.authenticate()
 });
 
 async function init(){
-    await db.sync({force: true});
-
+    await db.sync({
+        force: true,
+        logging: false,
+    });
     app.listen(PORT, function(){
         console.log('Running on port ' + PORT);
     });

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -w nodemon server/server.js",
-    "build": "webpack"
+    "start": "webpack -w & nodemon --watch server -e js,html server/server.js",
+    "build": "webpack -w"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -23,6 +23,7 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
     "webpack": "^4.11.0",
     "webpack-cli": "^3.0.2"
   },

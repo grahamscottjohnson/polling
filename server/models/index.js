@@ -10,6 +10,12 @@ const User = db.define('user', {
         type: Sequelize.STRING,
         allowNull: false,
     },
+    email: {
+        type: Sequelize.STRING,
+        validate: {
+            isEmail: true,
+        },
+    }
 });
 
 const Poll = db.define('poll', {
@@ -30,12 +36,10 @@ const Response = db.define('response', {
     }
 });
 
-const UserPoll = db.define('userpoll');
-
-User.belongsToMany(Poll, {through: UserPoll});
-Poll.belongsToMany(User, {through: UserPoll});
-Response.belongsToMany(UserPoll, {through: 'userpollresponse'});
-UserPoll.belongsToMany(Response, {through: 'userpollresponse'});
+User.belongsToMany(Poll, {through: 'userpoll'});
+Poll.belongsToMany(User, {through: 'userpoll'});
+Response.belongsToMany(User, {through: 'userresponse'});
+User.belongsToMany(Response, {through: 'userresponse'});
 
 
 module.exports = {

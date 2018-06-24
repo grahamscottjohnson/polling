@@ -5,7 +5,7 @@ const { Poll } = require('./../models');
 pollsRouter.get('/', async function( req, res, next){
     try{
         const polls = await Poll.findAll();
-        res.send(polls); //pass in polls as prop to component
+        res.send(polls);
     } catch (err) {
         next(err);
     }
