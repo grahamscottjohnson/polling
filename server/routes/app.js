@@ -20,6 +20,7 @@ app.get('/', function( req, res, next ){
 
 app.use('/api', require('./api'));
 app.use('/users', require('./users'));
+app.use('/polls', require('./polls'));
 
 app.use( (req, res, next) => {
     res.status(404);

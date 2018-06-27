@@ -3,6 +3,7 @@ import PollPage from './PollPage.jsx';
 import Poll from './Poll.jsx';
 import CreateAccount from './CreateAccount.jsx';
 import SignIn from './SignIn.jsx';
+import AddPoll from './AddPoll.jsx';
 
 export class App extends React.Component{
     constructor(props){
@@ -35,6 +36,7 @@ export class App extends React.Component{
                 <a onClick = {() => this.changeLocation('polls')} >List of Polls</a>
                 <a onClick = {() => this.changeLocation('signIn')} >Sign In</a>
                 <a onClick = {() => this.changeLocation('createAccount')} >Create Account</a>
+                <a onClick = {() => this.changeLocation('addPoll')} >Add Poll</a>
                 <hr />
                 {( this.state.location === 'polls' && <PollPage 
                     polls = {this.state.polls} 
@@ -44,6 +46,7 @@ export class App extends React.Component{
                 {this.state.location === 'selectedPoll' && <Poll poll = {this.state.selectedPoll}/>}
                 {this.state.location === 'signIn' && <SignIn />}
                 {this.state.location === 'createAccount' && <CreateAccount />}
+                {this.state.location === 'addPoll' && <AddPoll />}
             </div>
         )
     }

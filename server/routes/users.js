@@ -12,10 +12,14 @@ userRouter.post('/', async (req, res, next) => {
             password: req.body.password,
             email: req.body.email,
         });
-        res.redirect(`/${user.id}`)
+        res.redirect(`/users/${user.id}`)
     } catch (err) {
         next(err)
     }
+});
+
+userRouter.get('/:id', (req, res, next) => {
+    res.redirect('/');
 });
 
 module.exports = userRouter;

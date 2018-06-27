@@ -33,6 +33,9 @@ const Response = db.define('response', {
     response: {
         type: Sequelize.STRING,
         allowNull: false,
+        validate: {
+            notEmpty: true,
+        }
     }
 });
 
@@ -41,6 +44,13 @@ Poll.belongsToMany(User, {through: 'userpoll'});
 Response.belongsToMany(User, {through: 'userresponse'});
 User.belongsToMany(Response, {through: 'userresponse'});
 
+// Poll.findUsers({
+//     include: [
+//         {
+//             model: UserResponse,
+//         }
+//     ]
+// })
 
 module.exports = {
     db,

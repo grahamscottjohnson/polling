@@ -4,11 +4,17 @@ const Poll = (props) => {
     return (
         <div>
             <h2>{props.poll.question}</h2>
-            <ul>
+            <ol>
                 {props.poll.responses.map( (response, index) => {
                     return <li key={index}>{response}</li>
                 })}
-            </ul>
+            </ol>
+            <h4>Responses</h4>
+            <ol>
+                {props.poll.responses.map( (response, index) => {
+                    return <li key={index}></li>
+                })}
+            </ol>
         </div>
     )
 }
